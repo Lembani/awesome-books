@@ -26,3 +26,8 @@ const addBook = () => {
 };
 
 addBtn.addEventListener('click', addBook);
+
+let storageBooks;
+const getLocalData = () => {
+  storageBooks = JSON.parse(localStorage.getItem('books'));
+};
