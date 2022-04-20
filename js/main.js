@@ -33,6 +33,23 @@ class Book {
     this.showBooks();
     return true;
   }
+
+  static showBooks = () => {
+    booksContainer.innerHTML = '';
+    this.localStorageBooks = JSON.parse(localStorage.getItem('books'));
+    this.localStorageBooks.forEach((book) => {
+      const bookTemplate = `
+            <p>${book.title}</p>
+            <p>${book.author}</p>
+            <button type="button" class="remove" id="${book.id}">Remove</button>
+            <hr>
+        `;
+      booksContainer.innerHTML += bookTemplate;
+    });
+    return this.booksContainer;
+  }
 }
 
 addBtn.addEventListener('click', Book.addBook);
+
+document.addEventListener('DOMContentLoaded', Book.showBooks);
