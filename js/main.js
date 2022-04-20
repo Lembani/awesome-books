@@ -42,7 +42,6 @@ const addBook = () => {
   author.value = '';
   showBooks();
 };
-
 addBtn.addEventListener('click', addBook);
 
 booksContainer.addEventListener('click', (e) => {
@@ -56,5 +55,4 @@ booksContainer.addEventListener('click', (e) => {
     showBooks();
   }
 });
-
 document.addEventListener('DOMContentLoaded', showBooks);
