@@ -2,7 +2,7 @@ const { bookForm } = document.forms;
 const { title } = bookForm;
 const { author } = bookForm;
 const addBtn = document.getElementById('addBtn');
-// const booksContainer = document.querySelector('.booksContainer');
+const booksContainer = document.querySelector('.booksContainer');
 
 let books = [];
 books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
@@ -22,7 +22,7 @@ const addBook = () => {
   localStorage.setItem('books', JSON.stringify(books));
   title.value = '';
   author.value = '';
-  // call showBooks() here..
+   showBooks();
 };
 
 addBtn.addEventListener('click', addBook);
