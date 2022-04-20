@@ -57,3 +57,5 @@ booksContainer.addEventListener('click', (e) => {
     showBooks();
   }
 });
+
+document.addEventListener('DOMContentLoaded', showBooks);
