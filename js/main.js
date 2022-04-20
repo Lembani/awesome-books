@@ -1,58 +1,38 @@
 const { bookForm } = document.forms;
-const { title } = bookForm;
-const { author } = bookForm;
+const { titleInput } = bookForm;
+const { authorInput } = bookForm;
 const addBtn = document.getElementById('addBtn');
 const booksContainer = document.querySelector('.booksContainer');
 
-let books = [];
-books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
+class Book {
+  static books = [];
 
-let storageBooks;
-const getLocalData = () => {
-  storageBooks = JSON.parse(localStorage.getItem('books'));
-};
+  localStorageBooks;
 
-const showBooks = () => {
-  booksContainer.innerHTML = '';
-  getLocalData();
-  storageBooks.forEach((book) => {
-    const bookTemplate = `
-            <p>${book.title}</p>
-            <p>${book.author}</p>
-            <button type="button" class="remove" id="${book.id}">Remove</button>
-            <hr>
-        `;
-    booksContainer.innerHTML += bookTemplate;
-  });
-};
+  static addBook = (e) => {
+    e.preventDefault();
+    this.books = JSON.parse(localStorage.getItem('books')) !== null ? (this.books = JSON.parse(localStorage.getItem('books'))) : [];
 
-const addBook = () => {
-  books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
-  const book = {
-    id: 0,
-    title: '',
-    author: '',
-  };
-  book.title = title.value;
-  book.author = author.value;
-  book.id = books.length + 1;
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-  title.value = '';
-  author.value = '';
-  showBooks();
-};
-addBtn.addEventListener('click', addBook);
+    this.book = {
+      id: 0,
+      title: '',
+      author: '',
+    };
 
-booksContainer.addEventListener('click', (e) => {
-  if (e.target.classList.contains('remove')) {
-    const id = e.target.attributes.id.value;
-    const filteredBooks = storageBooks.filter((book) => book.id !== +id);
-    localStorage.setItem(
-      'books',
-      JSON.stringify(filteredBooks),
-    );
-    showBooks();
+    if (titleInput.value === '' || authorInput.value === '') {
+      return false;
+    }
+
+    this.book.title = titleInput.value;
+    this.book.author = authorInput.value;
+    this.book.id = this.books.length + 1;
+    this.books.push(this.book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+    titleInput.value = '';
+    authorInput.value = '';
+    this.showBooks();
+    return true;
   }
-});
-document.addEventListener('DOMContentLoaded', showBooks);
+}
+
+addBtn.addEventListener('click', Book.addBook);
