@@ -31,3 +31,17 @@ let storageBooks;
 const getLocalData = () => {
   storageBooks = JSON.parse(localStorage.getItem('books'));
 };
+
+const showBooks = () => {
+  booksContainer.innerHTML = '';
+  getLocalData();
+  storageBooks.forEach((book) => {
+    const bookTemplate = `
+            <p>${book.title}</p>
+            <p>${book.author}</p>
+            <button type="button" class="remove" id="${book.id}">Remove</button>
+            <hr>
+        `;
+    booksContainer.innerHTML += bookTemplate;
+  });
+};
