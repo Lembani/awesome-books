@@ -48,8 +48,19 @@ class Book {
     });
     return this.booksContainer;
   }
+
+  static deleteBook = (e) => {
+    if (e.target.classList.contains('remove')) {
+      const id = e.target.attributes.id.value;
+      this.localStorageBooks = JSON.parse(localStorage.getItem('books'));
+      const filteredBooks = this.localStorageBooks.filter((book) => book.id !== +id);
+      localStorage.setItem('books', JSON.stringify(filteredBooks));
+      this.showBooks();
+    }
+  }
 }
 
 addBtn.addEventListener('click', Book.addBook);
+booksContainer.addEventListener('click', Book.deleteBook);
 
 document.addEventListener('DOMContentLoaded', Book.showBooks);
