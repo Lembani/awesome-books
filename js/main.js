@@ -45,3 +45,15 @@ const showBooks = () => {
     booksContainer.innerHTML += bookTemplate;
   });
 };
+
+booksContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove')) {
+    const id = e.target.attributes.id.value;
+    const filteredBooks = storageBooks.filter((book) => book.id !== +id);
+    const localBooks = localStorage.setItem(
+      'books',
+      JSON.stringify(filteredBooks)
+    );
+    showBooks();
+  }
+});
