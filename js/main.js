@@ -7,26 +7,6 @@ const booksContainer = document.querySelector('.booksContainer');
 let books = [];
 books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
 
-const addBook = () => {
-  books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
-
-  const book = {
-    id: 0,
-    title: '',
-    author: '',
-  };
-  book.title = title.value;
-  book.author = author.value;
-  book.id = books.length + 1;
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-  title.value = '';
-  author.value = '';
-   showBooks();
-};
-
-addBtn.addEventListener('click', addBook);
-
 let storageBooks;
 const getLocalData = () => {
   storageBooks = JSON.parse(localStorage.getItem('books'));
@@ -46,13 +26,32 @@ const showBooks = () => {
   });
 };
 
+const addBook = () => {
+  books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
+  const book = {
+    id: 0,
+    title: '',
+    author: '',
+  };
+  book.title = title.value;
+  book.author = author.value;
+  book.id = books.length + 1;
+  books.push(book);
+  localStorage.setItem('books', JSON.stringify(books));
+  title.value = '';
+  author.value = '';
+  showBooks();
+};
+
+addBtn.addEventListener('click', addBook);
+
 booksContainer.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
     const id = e.target.attributes.id.value;
     const filteredBooks = storageBooks.filter((book) => book.id !== +id);
-    const localBooks = localStorage.setItem(
+    localStorage.setItem(
       'books',
-      JSON.stringify(filteredBooks)
+      JSON.stringify(filteredBooks),
     );
     showBooks();
   }
