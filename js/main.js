@@ -1,6 +1,6 @@
 const { bookForm } = document.forms;
-const { titleInput } = bookForm;
-const { authorInput } = bookForm;
+const { title } = bookForm;
+const { author } = bookForm;
 const addBtn = document.getElementById('addBtn');
 const booksContainer = document.querySelector('.booksContainer');
 
@@ -19,17 +19,17 @@ class Book {
       author: '',
     };
 
-    if (titleInput.value === '' || authorInput.value === '') {
+    if (title.value === '' || author.value === '') {
       return false;
     }
 
-    this.book.title = titleInput.value;
-    this.book.author = authorInput.value;
+    this.book.title = title.value;
+    this.book.author = author.value;
     this.book.id = this.books.length + 1;
     this.books.push(this.book);
     localStorage.setItem('books', JSON.stringify(this.books));
-    titleInput.value = '';
-    authorInput.value = '';
+    title.value = '';
+    author.value = '';
     this.showBooks();
     return true;
   }
@@ -39,10 +39,10 @@ class Book {
     this.localStorageBooks = JSON.parse(localStorage.getItem('books'));
     this.localStorageBooks.forEach((book) => {
       const bookTemplate = `
-            <p>${book.title}</p>
-            <p>${book.author}</p>
-            <button type="button" class="remove" id="${book.id}">Remove</button>
-            <hr>
+            <div class="book-item">
+              <p>"${book.title}" by ${book.author}</p>
+              <button type="button" class="remove" id="${book.id}">Remove</button>
+            </div>
         `;
       booksContainer.innerHTML += bookTemplate;
     });
