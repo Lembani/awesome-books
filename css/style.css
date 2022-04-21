@@ -81,30 +81,49 @@ nav {
   border:  2px solid black;
 }
 
-ul {
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-list {
   list-style: none;
   display: flex;
 }
 
-ul li a {
-  list-style: none;
-  text-decoration: none;
-  color: black;
-}
-
-li {
+.nav-list li {
   padding: 5px;
   border-right: 2px solid black;
   display: block;
 }
 
-li:nth-child(3) {
+.nav-list li:nth-child(3) {
   border: none;
+}
+
+.nav-list li a {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-list > li > a:active {
+ color: teal !important;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-items > li {
+  border: 0;
 }
 
 footer {
   width: 500px;
   margin: 0 auto;
+  margin-top: 50px;
   border:  2px solid black;
   padding: 15px;
 }
