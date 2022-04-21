@@ -101,3 +101,10 @@ li {
 li:nth-child(3) {
   border: none;
 }
+
+footer {
+  width: 500px;
+  margin: 0 auto;
+  border:  2px solid black;
+  padding: 15px;
+}
