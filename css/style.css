@@ -69,3 +69,35 @@ input {
   background-color: #f55;
   color: #fff;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  margin: 0 auto;
+  padding: 0 10px;
+  margin-bottom: 50px;
+  border:  2px solid black;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  padding: 5px;
+  border-right: 2px solid black;
+  display: block;
+}
+
+li:nth-child(3) {
+  border: none;
+}
