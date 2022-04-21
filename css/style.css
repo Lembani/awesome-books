@@ -78,7 +78,7 @@ nav {
   margin: 0 auto;
   padding: 0 10px;
   margin-bottom: 50px;
-  border:  2px solid black;
+  border: 2px solid black;
 }
 
 a {
@@ -97,6 +97,10 @@ a {
   display: block;
 }
 
+.contact-items > li {
+  border: 0;
+}
+
 .nav-list li:nth-child(3) {
   border: none;
 }
@@ -108,7 +112,7 @@ a {
 }
 
 .nav-list > li > a:active {
- color: teal !important;
+  color: teal !important;
 }
 
 .contact-items {
@@ -116,14 +120,10 @@ a {
   flex-direction: column;
 }
 
-.contact-items > li {
-  border: 0;
-}
-
 footer {
   width: 500px;
   margin: 0 auto;
   margin-top: 50px;
-  border:  2px solid black;
+  border: 2px solid black;
   padding: 15px;
 }
