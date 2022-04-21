@@ -64,3 +64,33 @@ addBtn.addEventListener('click', Book.addBook);
 booksContainer.addEventListener('click', Book.deleteBook);
 
 document.addEventListener('DOMContentLoaded', Book.showBooks);
+
+const bookListLink = document.getElementById('bookListLink');
+const addBookLink = document.getElementById('addBookLink');
+const contactLink = document.getElementById('contactLink');
+
+const bookListSection = document.getElementById('bookList');
+const addBookSection = document.getElementById('addBook');
+const contactSection = document.getElementById('contact');
+
+bookListSection.style.display = 'block';
+addBookSection.style.display = 'none';
+contactSection.style.display = 'none';
+
+bookListLink.addEventListener('click', () => {
+  bookListSection.style.display = 'block';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
+});
+
+addBookLink.addEventListener('click', () => {
+  bookListSection.style.display = 'none';
+  addBookSection.style.display = 'block';
+  contactSection.style.display = 'none';
+});
+
+contactLink.addEventListener('click', () => {
+  bookListSection.style.display = 'none';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'block';
+});
