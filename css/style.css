@@ -1,3 +1,71 @@
-/*
- CSS Styles Go here..
-*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.booksContainer {
+  padding: 0;
+  border: 2px solid #333;
+  margin-bottom: 15px;
+}
+
+hr {
+  width: 100px;
+  height: 2px;
+  background-color: #111;
+  border: 0;
+  margin-bottom: 25px;
+}
+
+form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  row-gap: 8px;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+}
+
+input {
+  width: 290px;
+  margin: 0 auto;
+  padding: 5px 5px;
+}
+
+.add-btn {
+  color: #000;
+  background-color: #0e1;
+  align-self: flex-end;
+}
+
+.book-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.book-item:nth-child(even) {
+  background-color: #ddd;
+}
+
+.remove {
+  border: 2px solid #555;
+  background-color: #f55;
+  color: #fff;
+}

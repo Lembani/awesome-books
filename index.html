@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Awesome books</h1>
-    <div class="booksContainer"></div>
-    <form action="#" name="bookForm" method="post">
-        <input type="text" name="title" id="bookTitle" placeholder="Title">
-        <br>
-        <input type="text" name="author" id="bookAuthor" placeholder="Author">
-        <br>
-        <button type="button" id="addBtn">Add</button>
-    </form>
+    <main>
+        <h1>All awesome books</h1>
+        <div class="booksContainer"></div>
+        <hr>
+        <form action="#" name="bookForm" method="post">
+            <h2>Add a new book</h2>
+            <input type="text" name="title" size="30" id="bookTitle" placeholder="Title" required>
+            <input type="text" name="author" size="30" id="bookAuthor" placeholder="Author" required>
+            <button type="submit" class="add-btn" id="addBtn">Add</button>
+        </form>
+    </main>
 
     <script src="./js/main.js"></script>
 </body>
